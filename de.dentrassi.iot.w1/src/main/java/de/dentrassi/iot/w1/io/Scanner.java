@@ -28,10 +28,17 @@ import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import de.dentrassi.iot.w1.Sensor;
 
 public class Scanner {
 
+    private static final Logger logger = LoggerFactory.getLogger(Scanner.class);
+
+    public static final String DEFAULT_ROOT = "/sys/bus/w1/devices";
+    
     private static final Pattern SLAVE_NAME_PATTERN = Pattern.compile("\\p{XDigit}{2}-\\p{XDigit}{12}");
 
     private final class ResultEntry implements Map.Entry<Sensor, ReadResult<RawSensorValue>> {
@@ -65,10 +72,12 @@ public class Scanner {
 
     public Scanner(final Path base) {
         this.base = base;
+        logger.info("Scanner: {}", base);
+
     }
 
     public Scanner() {
-        this(Paths.get("/sys/bus/w1/devices"));
+        this(Paths.get(DEFAULT_ROOT));
     }
 
     public RawSensorValue rawRead(final Sensor source) throws IOException {

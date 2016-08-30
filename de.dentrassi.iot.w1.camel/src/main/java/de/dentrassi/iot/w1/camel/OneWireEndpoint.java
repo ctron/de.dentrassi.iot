@@ -28,7 +28,9 @@ import org.apache.camel.Component;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
 import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriEndpoint;
+import org.apache.camel.spi.UriPath;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,6 +44,11 @@ public class OneWireEndpoint extends DefaultEndpoint {
 
     private static final Logger logger = LoggerFactory.getLogger(OneWireEndpoint.class);
 
+    /**
+     * The URI path
+     */
+    @UriPath
+    @Metadata(required = "true")
     private final String remaining;
 
     private final Set<Consumer<Stream<SensorValue>>> listeners = new CopyOnWriteArraySet<>();

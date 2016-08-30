@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
+    <OCD id="de.dentrassi.iot.w1.camel.kura.OneWireComponent" 
+         name="One Wire Component" 
+         description="A component for providing one wire temperature sensor information">
+
+        <AD id="enabled"
+            name="enabled"
+            type="Boolean"
+            cardinality="0"
+            required="true"
+            default="true"
+            description="Enable or disable the service">
+        </AD>
+        
+    </OCD>
+    
+    <Designate pid="de.dentrassi.iot.w1.camel.kura.OneWireComponent">
+        <Object ocdref="de.dentrassi.iot.w1.camel.kura.OneWireComponent"/>
+    </Designate>
+</MetaData>

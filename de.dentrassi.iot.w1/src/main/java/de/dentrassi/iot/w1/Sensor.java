@@ -33,6 +33,10 @@ public class Sensor {
         return this.slave;
     }
 
+    public String getMasterAndSlave() {
+        return String.format("%s/%s", this.master, this.slave);
+    }
+
     @Override
     public String toString() {
         return String.format("[%s,%s]", this.master, this.slave);

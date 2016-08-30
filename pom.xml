@@ -58,14 +58,17 @@
 	<modules>
 		<module>de.dentrassi.iot.w1</module>
 		<module>de.dentrassi.iot.w1.camel</module>
+		<module>de.dentrassi.iot.w1.camel.kura</module>
 	</modules>
 
 	<dependencyManagement>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.21</version>
-		</dependency>
+		<dependencies>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.6.0</version>
+			</dependency>
+		</dependencies>
 	</dependencyManagement>
 
 	<build>

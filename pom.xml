@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.dentrassi.iot</groupId>
 	<artifactId>de.dentrassi.iot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>pom</packaging>
 
 	<name>IoT stuff</name>
@@ -25,7 +24,8 @@
 	<scm>
 		<url>https://github.com/ctron/de.dentrassi.iot</url>
 		<connection>scm:git:git@github.com:ctron/de.dentrassi.iot.git</connection>
-	</scm>
+	  <tag>de.dentrassi.iot-0.0.1</tag>
+  </scm>
 
 	<issueManagement>
 		<url>https://github.com/ctron/de.dentrassi.iot/issues</url>

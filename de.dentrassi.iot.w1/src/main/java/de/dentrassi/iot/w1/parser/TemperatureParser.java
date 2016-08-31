@@ -31,6 +31,11 @@ public class TemperatureParser implements LineParser {
 
     @Override
     public Optional<SensorValue> parse(final Sensor sensor, final Instant timestamp, final String line) {
+
+        if (line.startsWith("00 00 00 00 00 00 00 00 00")) {
+            return Optional.of(new ErrorSensorValue(sensor, new IllegalStateException("Sensor lost"), timestamp));
+        }
+
         final Matcher m = PATTERN.matcher(line);
         if (!m.matches()) {
             return Optional.empty();

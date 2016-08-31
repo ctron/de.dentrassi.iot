@@ -50,10 +50,14 @@ public class TestApp1 {
 
             @Override
             public void configure() throws Exception {
-                from(uri).log("${body.value}") //
+                from(uri).log("${body}") //
+                        .choice() //
+                        .when(simple("${body} is 'de.dentrassi.iot.w1.FloatSensorValue'")) //
                         .setBody(simple("${body.value}")) //
                         .convertBodyTo(String.class).convertBodyTo(byte[].class) //
-                        .to("paho:sensors/test2/temperature?brokerUrl=" + mqttBroker);
+                        .to("paho:sensors/test2/temperature?brokerUrl=" + mqttBroker) //
+                        .otherwise() //
+                        .log("ERROR: ${body.reason}");
             }
         });
 

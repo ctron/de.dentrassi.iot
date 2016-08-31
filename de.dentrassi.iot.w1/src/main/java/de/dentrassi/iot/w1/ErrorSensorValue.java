@@ -31,4 +31,13 @@ public class ErrorSensorValue extends SensorValue {
         return this.error;
     }
 
+    public String getReason() {
+        return this.error.getMessage();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[%s: %s @ %s - %s]", getClass().getSimpleName(), this.sensor, this.timestamp,
+                getReason());
+    }
 }

@@ -23,8 +23,8 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com/ctron/de.dentrassi.iot</connection>
 		<url>https://github.com/ctron/de.dentrassi.iot</url>
+		<connection>scm:git:git@github.com:ctron/de.dentrassi.iot.git</connection>
 	</scm>
 
 	<issueManagement>

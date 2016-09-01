@@ -59,6 +59,7 @@
 
 	<modules>
 		<module>de.dentrassi.iot.opentsdb.collector</module>
+		<module>de.dentrassi.iot.opentsdb.collector.camel</module>
 		<module>de.dentrassi.iot.opentsdb.collector.http</module>
 
 		<module>de.dentrassi.iot.w1</module>

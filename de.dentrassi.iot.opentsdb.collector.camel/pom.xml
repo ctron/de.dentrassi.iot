@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>de.dentrassi.iot</groupId>
-        <artifactId>de.dentrassi.iot</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
-        <relativePath>..</relativePath>
-    </parent>
+	<parent>
+		<groupId>de.dentrassi.iot</groupId>
+		<artifactId>de.dentrassi.iot</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
 
-	<artifactId>de.dentrassi.iot.w1.camel</artifactId>
+	<artifactId>de.dentrassi.iot.opentsdb.collector.camel</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>Camel :: One Wire</name>
-	<description>An Apache Camel component for one wire sensors</description>
+	<name>Camel :: OpenTSDB Collector</name>
+	<description>An Apache Camel component collector metric with OpenTSDB</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<jdk.version>1.8</jdk.version>
 
-		<camel.osgi.export.pkg>!*.internal.*,de.dentrassi.iot.w1.camel.*</camel.osgi.export.pkg>
+		<camel.osgi.export.pkg>!*.internal.*,de.dentrassi.iot.*</camel.osgi.export.pkg>
 		<camel.osgi.export.service>
-			org.apache.camel.spi.ComponentResolver;component=w1,
+			org.apache.camel.spi.ComponentResolver;component=open-tsdb,
 		</camel.osgi.export.service>
 
 		<camel.version>2.17.2</camel.version>
@@ -38,7 +39,7 @@
 
 		<dependency>
 			<groupId>de.dentrassi.iot</groupId>
-			<artifactId>de.dentrassi.iot.w1</artifactId>
+			<artifactId>de.dentrassi.iot.opentsdb.collector</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
@@ -61,18 +62,24 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-stream</artifactId>
-            <version>${camel.version}</version>
-            <scope>test</scope>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-paho</artifactId>
-            <version>${camel.version}</version>
-            <scope>test</scope>
-        </dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-stream</artifactId>
+			<version>${camel.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-paho</artifactId>
+			<version>${camel.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>de.dentrassi.iot</groupId>
+			<artifactId>de.dentrassi.iot.opentsdb.collector.http</artifactId>
+			<version>${project.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

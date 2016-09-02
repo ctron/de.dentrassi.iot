@@ -3,7 +3,7 @@
 
 	<groupId>de.dentrassi.iot</groupId>
 	<artifactId>de.dentrassi.iot</artifactId>
-	<version>0.0.3</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>IoT stuff</name>
@@ -25,7 +25,7 @@
 	<scm>
 		<url>https://github.com/ctron/de.dentrassi.iot</url>
 		<connection>scm:git:git@github.com:ctron/de.dentrassi.iot.git</connection>
-		<tag>de.dentrassi.iot-0.0.3</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>

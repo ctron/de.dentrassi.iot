@@ -73,6 +73,7 @@ public class OneWireComponent extends CamelRouter implements ConfigurableCompone
             final FloatSensorValue floatValue = (FloatSensorValue) value;
             final KuraPayload kp = new KuraPayload();
             kp.addMetric(value.getSensor().getMasterAndSlave(), floatValue.getValue());
+            exchange.getIn().setBody(kp);
         }
     }
 }

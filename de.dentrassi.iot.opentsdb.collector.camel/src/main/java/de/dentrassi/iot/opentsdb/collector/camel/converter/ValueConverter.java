@@ -35,12 +35,27 @@ public final class ValueConverter implements TypeConverters {
     }
 
     @Converter
+    public static Value fromLong(final long value) {
+        return new Value(value, Instant.now());
+    }
+
+    @Converter
     public static Value fromInt(final Integer value) {
         return new Value(value, Instant.now());
     }
 
     @Converter
+    public static Value fromInt(final int value) {
+        return new Value(value, Instant.now());
+    }
+
+    @Converter
     public static Value fromFloat(final Float value) {
+        return new Value(value, Instant.now());
+    }
+
+    @Converter
+    public static Value fromFloat(final float value) {
         return new Value(value, Instant.now());
     }
 }

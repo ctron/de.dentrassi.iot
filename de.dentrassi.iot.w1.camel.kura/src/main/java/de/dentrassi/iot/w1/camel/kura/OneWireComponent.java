@@ -18,7 +18,6 @@ package de.dentrassi.iot.w1.camel.kura;
 
 import java.util.Map;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.eclipse.kura.camel.router.CamelRouter;
 import org.eclipse.kura.configuration.ConfigurableComponent;
@@ -39,31 +38,8 @@ import de.dentrassi.iot.w1.SensorValue;
 public class OneWireComponent extends CamelRouter implements ConfigurableComponent {
 
     @Override
-    protected void beforeStart(CamelContext camelContext) {
-        super.beforeStart(camelContext);
-    }
-
-    @Override
     public void configure() throws Exception {
         from("w1:*").process(this::process).to("kura-cloud:w1/metrics");
-    }
-
-    @Activate
-    @Override
-    protected void activate(ComponentContext componentContext, Map<String, Object> properties) {
-        super.activate(componentContext, properties);
-    }
-
-    @Deactivate
-    @Override
-    protected void deactivate(ComponentContext componentContext) {
-        super.deactivate(componentContext);
-    }
-
-    @Modified
-    @Override
-    protected void modified(Map<String, Object> properties) {
-        super.modified(properties);
     }
 
     private void process(final Exchange exchange) {
@@ -75,5 +51,26 @@ public class OneWireComponent extends CamelRouter implements ConfigurableCompone
             kp.addMetric(value.getSensor().getMasterAndSlave(), floatValue.getValue());
             exchange.getIn().setBody(kp);
         }
+    }
+
+    @Activate
+    @Override
+    protected void activate(ComponentContext componentContext, Map<String, Object> properties) {
+        // Overridden to add @Activate
+        super.activate(componentContext, properties);
+    }
+
+    @Deactivate
+    @Override
+    protected void deactivate(ComponentContext componentContext) {
+        // Overridden to add @Deactivate
+        super.deactivate(componentContext);
+    }
+
+    @Modified
+    @Override
+    protected void modified(Map<String, Object> properties) {
+        // Overridden to add @Modified
+        super.modified(properties);
     }
 }

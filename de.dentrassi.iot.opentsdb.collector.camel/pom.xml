@@ -12,8 +12,10 @@
 	<artifactId>de.dentrassi.iot.opentsdb.collector.camel</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>Camel :: OpenTSDB Collector</name>
-	<description>An Apache Camel component collector metric with OpenTSDB</description>
+	<name>OpenTSDB Collector :: Camel</name>
+	<description>An Apache Camel component metric collector for OpenTSDB</description>
+	
+	<inceptionYear>2016</inceptionYear>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

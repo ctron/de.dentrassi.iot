@@ -10,8 +10,9 @@
 	</parent>
 
 	<artifactId>de.dentrassi.iot.w1.camel.kura</artifactId>
-
 	<packaging>bundle</packaging>
+	
+	<name>One Wire Kura Collector</name>
 
 	<properties>
 		<camel.version>2.17.2</camel.version>

@@ -13,6 +13,8 @@
 
 	<name>OpenTSDB Collector :: HTTP Backend</name>
 	<description>HTTP backend for the OpenTSDB collector</description>
+	
+	<inceptionYear>2016</inceptionYear>
 
 	<dependencies>
 
@@ -49,5 +51,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

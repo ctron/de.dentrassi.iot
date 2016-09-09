@@ -12,8 +12,10 @@
 	<artifactId>de.dentrassi.iot.w1.camel</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>Camel :: One Wire</name>
+	<name>One Wire :: Camel</name>
 	<description>An Apache Camel component for one wire sensors</description>
+	
+	<inceptionYear>2016</inceptionYear>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -137,4 +139,5 @@
 			</dependencies>
 		</profile>
 	</profiles>
+	
 </project>

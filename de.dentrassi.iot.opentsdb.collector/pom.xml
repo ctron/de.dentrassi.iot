@@ -11,7 +11,7 @@
 	<artifactId>de.dentrassi.iot.opentsdb.collector</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>OpenTSDB collector</name>
+	<name>OpenTSDB Collector</name>
 	<description>A library for pushing metric data to the OpenTSDB API</description>
 
 	<inceptionYear>2016</inceptionYear>

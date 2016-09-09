@@ -12,8 +12,8 @@
 	<artifactId>de.dentrassi.iot.w1</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>1 wire support library</name>
-	<description>This library parses 1 wire sensor data from the /sys Linux filesystem</description>
+	<name>One wire support library</name>
+	<description>This library parses one wire sensor data from the /sys Linux filesystem</description>
 
 	<inceptionYear>2016</inceptionYear>
 

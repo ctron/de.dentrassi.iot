@@ -27,7 +27,9 @@ import java.util.concurrent.CompletableFuture;
  * Use the {@link CollectorBuilder} to create a new instance.
  * </p>
  * <p>
- * The following example shows how to publish some data: <code><pre>
+ * The following example shows how to publish some data:
+ * </p>
+ * <pre>{@code
 CollectorBuilder builder = new CollectorBuilder(new URL("http://localhost:4242"));
 builder.option(SYNC, true);
 
@@ -38,9 +40,7 @@ try (Collector collector = builder.build()
        .publish(new Data("random", r.nextFloat() * 100.0f, now(), singletonMap("test", "foo")));
 
     result.join();
-}
- * </pre></code>
- * </p>
+}}</pre>
  */
 public interface Collector extends AutoCloseable {
     public default CompletableFuture<Void> publish(final Data data) {

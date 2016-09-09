@@ -21,6 +21,27 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * The collector interface
+ * <p>
+ * Use the {@link CollectorBuilder} to create a new instance.
+ * </p>
+ * <p>
+ * The following example shows how to publish some data: <code><pre>
+CollectorBuilder builder = new CollectorBuilder(new URL("http://localhost:4242"));
+builder.option(SYNC, true);
+
+try (Collector collector = builder.build()
+       .orElseThrow(() -> new IllegalStateException("Failed to get collector"))) {
+
+    CompletableFuture<Void> result = collector
+       .publish(new Data("random", r.nextFloat() * 100.0f, now(), singletonMap("test", "foo")));
+
+    result.join();
+}
+ * </pre></code>
+ * </p>
+ */
 public interface Collector extends AutoCloseable {
     public default CompletableFuture<Void> publish(final Data data) {
         return publish(Collections.singletonList(data));

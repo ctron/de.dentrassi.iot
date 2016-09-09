@@ -29,6 +29,9 @@ import java.util.function.Function;
 
 import de.dentrassi.iot.opentsdb.collector.service.CollectorFactory;
 
+/**
+ * The collector builder
+ */
 public class CollectorBuilder {
 
     public static interface Option<T> {

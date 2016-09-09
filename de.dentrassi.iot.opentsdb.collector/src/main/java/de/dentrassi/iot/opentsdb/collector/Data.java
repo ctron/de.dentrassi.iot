@@ -22,16 +22,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Metric data to publish
+ */
 public class Data {
     private final String metric;
     private final Number value;
     private final Instant timestamp;
     private final Map<String, String> tags;
 
+    /**
+     * Create a new piece of data
+     *
+     * @param metric
+     *            the name of the metric
+     * @param value
+     *            the value to publish
+     * @param timestamp
+     *            the timestamp of the value
+     * @param tags
+     *            a map of tags, must contain at least one pair
+     */
     public Data(final String metric, final long value, final Instant timestamp, final Map<String, String> tags) {
         this(metric, (Number) value, timestamp, tags);
     }
 
+    /**
+     * Create a new piece of data
+     *
+     * @param metric
+     *            the name of the metric
+     * @param value
+     *            the value to publish
+     * @param timestamp
+     *            the timestamp of the value
+     * @param tags
+     *            a map of tags, must contain at least one pair
+     */
     public Data(final String metric, final float value, final Instant timestamp, final Map<String, String> tags) {
         this(metric, (Number) value, timestamp, tags);
     }

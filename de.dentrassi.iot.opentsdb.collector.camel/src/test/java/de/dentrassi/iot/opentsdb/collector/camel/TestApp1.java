@@ -33,6 +33,10 @@ public class TestApp1 {
                 from("paho:sensors/test2/temperature?brokerUrl=tcp://iot.eclipse.org").log("${body}") //
                         .convertBodyTo(String.class).convertBodyTo(Float.class) //
                         .to("open-tsdb:http://localhost:4242#test2/value=temp");
+
+                from("paho:tele/devices/TEMP?brokerUrl=tcp://iot.eclipse.org").log("${body}") //
+                        .convertBodyTo(String.class).convertBodyTo(Float.class) //
+                        .to("open-tsdb:http://localhost:4242#test3/value=temp");
             }
         });
 

@@ -38,7 +38,7 @@ public class Scanner {
     private static final Logger logger = LoggerFactory.getLogger(Scanner.class);
 
     public static final String DEFAULT_ROOT = "/sys/bus/w1/devices";
-    
+
     private static final Pattern SLAVE_NAME_PATTERN = Pattern.compile("\\p{XDigit}{2}-\\p{XDigit}{12}");
 
     private final class ResultEntry implements Map.Entry<Sensor, ReadResult<RawSensorValue>> {
@@ -73,7 +73,6 @@ public class Scanner {
     public Scanner(final Path base) {
         this.base = base;
         logger.info("Scanner: {}", base);
-
     }
 
     public Scanner() {

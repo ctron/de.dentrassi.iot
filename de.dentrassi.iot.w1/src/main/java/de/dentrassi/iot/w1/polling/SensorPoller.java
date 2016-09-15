@@ -30,6 +30,9 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import de.dentrassi.iot.w1.ErrorSensorValue;
 import de.dentrassi.iot.w1.Sensor;
 import de.dentrassi.iot.w1.SensorValue;
@@ -37,6 +40,8 @@ import de.dentrassi.iot.w1.io.Scanner;
 import de.dentrassi.iot.w1.parser.ValueParser;
 
 public class SensorPoller implements AutoCloseable {
+    private static final Logger logger = LoggerFactory.getLogger(SensorPoller.class);
+
     private static final AtomicLong COUNTER = new AtomicLong();
     private final ScheduledExecutorService executor;
     private final Scanner scanner;
@@ -62,14 +67,12 @@ public class SensorPoller implements AutoCloseable {
     protected void update() {
         final Map<Sensor, SensorValue> found = new HashMap<>();
 
-        try {
-            final Stream<SensorValue> values = this.scanner.readAllSensors().flatMap(this.parser::parse);
-
+        try (final Stream<SensorValue> values = this.scanner.readAllSensors().flatMap(this.parser::parse)) {
             values.forEach(value -> {
                 found.put(value.getSensor(), value);
             });
         } catch (final Exception e) {
-            e.printStackTrace();
+            logger.warn("Failed to update", e);
         }
 
         final Set<Sensor> removed = new HashSet<>(this.last.keySet());
@@ -77,10 +80,10 @@ public class SensorPoller implements AutoCloseable {
 
         this.last = found;
 
-        final Stream<SensorValue> stream = Stream.concat(found.values().stream(),
-                removed.stream().map(SensorPoller::toError));
-
-        handleUpdate(stream);
+        try (final Stream<SensorValue> stream = Stream.concat(found.values().stream(),
+                removed.stream().map(SensorPoller::toError))) {
+            handleUpdate(stream);
+        }
     }
 
     protected void handleUpdate(final Stream<SensorValue> updateStream) {

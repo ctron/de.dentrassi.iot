@@ -184,6 +184,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <skipDeploy>true</skipDeploy>
                     <reportPlugins>
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
@@ -233,13 +234,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-site-plugin</artifactId>
-                        <configuration>
-                            <skipDeploy>true</skipDeploy>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
